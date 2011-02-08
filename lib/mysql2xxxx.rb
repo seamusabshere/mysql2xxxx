@@ -1,0 +1,3 @@
+module Mysql2xxxx
+  # Your code goes here...
+end
