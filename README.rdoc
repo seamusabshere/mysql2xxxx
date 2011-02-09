@@ -1,0 +1,31 @@
+=mysql2xxxx
+
+==Binaries
+
+    mysql2csv --user=dbuser --password=dbpassword --database=dbname --execute="select * from automobile_makes"
+    mysql2json --user=dbuser --password=dbpassword --database=dbname --execute="select * from automobile_makes"
+    mysql2xml --user=dbuser --password=dbpassword --database=dbname --execute="select * from automobile_makes"
+
+To see all options
+
+    mysql2csv --help
+
+==Ruby
+
+    a = Mysql2xxxx::JSON.new :user => 'dbuser', :password => 'dbpassword', :database => 'dbname', :execute => "select * from automobile_makes"
+    a.to_stdout                                     # write it directly to $stdout
+    puts a.to_s                                     # get a string
+    a.to_path('/tmp/outfile.json')                  # write it to a file at this path
+    a.to_file(File.open('/tmp/outfile.json', 'w'))  # write it to a file handle
+
+Note also that if you're running it inside a Rails application, it will default to the ActiveRecord connection config.
+
+    a = Mysql2xxxx::JSON.new :execute => "select * from automobile_makes"  # no need to specify user, etc. because it's taken from ActiveRecord
+
+==Well-formedness
+
+* CSV output depends on FasterCSV <tt>to_csv</tt>
+* JSON output depends on ActiveSupport <tt>to_json</tt>
+* XML output is written manually, but looks like the output of <tt>mysql [hyphen][hyphen]xml</tt>
+
+Copyright 2011 Seamus Abshere
