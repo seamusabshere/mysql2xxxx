@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Seamus Abshere"]
   s.email       = ["seamus@abshere.net"]
   s.homepage    = ""
-  s.summary     = %q{Gives you binaries like mysql2csv, mysql2json, and mysql2xml, and Ruby classes to match.}
-  s.description = %q{In a memory-sensitive way (but not fast), dump mysql tables to JSON, CSV, XML.}
+  s.summary     = %q{In a memory-sensitive way (but not fast), dump mysql tables to JSON, CSV, XML.}
+  s.description = %q{Gives you binaries like mysql2csv, mysql2json, and mysql2xml, and Ruby classes to match.}
 
   s.rubyforge_project = "mysql2xxxx"
 
