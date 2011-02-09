@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Seamus Abshere"]
   s.email       = ["seamus@abshere.net"]
   s.homepage    = ""
-  s.summary     = %q{In a memory-sensitive way (but not fast), dump mysql tables to JSON, CSV, XML}
-  s.description = %q{Gives you a Ruby interface and also binaries.}
+  s.summary     = %q{Gives you binaries like mysql2csv, mysql2json, and mysql2xml, and Ruby classes to match.}
+  s.description = %q{In a memory-sensitive way (but not fast), dump mysql tables to JSON, CSV, XML.}
 
   s.rubyforge_project = "mysql2xxxx"
 
@@ -19,9 +19,10 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   
-  s.add_dependency 'activesupport'
+  s.add_dependency 'activesupport', '>=2.3.10'
   s.add_dependency 'mysql2'
-  s.add_dependency 'builder'
+  s.add_dependency 'mixlib-cli'
+  s.add_dependency 'fast_xs'
   unless RUBY_VERSION >= '1.9'
     s.add_dependency 'fastercsv'
   end

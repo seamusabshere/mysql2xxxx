@@ -9,8 +9,6 @@ require 'shell/executer'
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'mysql2xxxx'
-class Test::Unit::TestCase
-end
 
 MYSQL_USER = 'root'
 MYSQL_PASS = 'password'
@@ -25,10 +23,13 @@ execute_sql "CREATE DATABASE #{TEST_DB}"
 execute_sql "SOURCE test/fixtures/automobile_makes.sql", TEST_DB
 execute_sql "SOURCE test/fixtures/automobile_make_years.sql", TEST_DB
 
-# just used as defaults
-ActiveRecord::Base.establish_connection(
-  'adapter' => 'mysql2',
-  'database' => TEST_DB,
-  'username' => MYSQL_USER,
-  'password' => MYSQL_PASS
-)
+class Test::Unit::TestCase
+  def setup
+    @options = {
+      :execute => %{SELECT * FROM automobile_makes WHERE automobile_makes.name IN (SELECT DISTINCT automobile_make_years.make_name FROM automobile_make_years)},
+      :user => MYSQL_USER,
+      :password => MYSQL_PASS,
+      :database => TEST_DB
+    }
+  end
+end

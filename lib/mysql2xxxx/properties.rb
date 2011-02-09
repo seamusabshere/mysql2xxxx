@@ -8,36 +8,36 @@ module Mysql2xxxx
     
     def database_config
       {
-        :username => database_username,
-        :password => database_password,
-        :host => database_host,
-        :port => database_port,
-        :database => database_name
+        :username => user,
+        :password => password,
+        :host => host,
+        :port => port,
+        :database => database
       }
     end
 
-    def database_username
-      options['database_username'] || active_record_config.try(:[], :username)
+    def user
+      options['user'] || active_record_config.try(:[], :username)
     end
     
-    def database_password
-      options['database_password'] || active_record_config.try(:[], :password)
+    def password
+      options['password'] || active_record_config.try(:[], :password)
     end
     
-    def database_host
-      options['database_host'] || active_record_config.try(:[], :host)
+    def host
+      options['host'] || active_record_config.try(:[], :host)
     end
     
-    def database_port
-      options['database_port'] || active_record_config.try(:[], :port)
+    def port
+      options['port'] || active_record_config.try(:[], :port)
     end
     
-    def database_name
-      options['database_name'] || active_record_connection.try(:current_database)
+    def database
+      options['database'] || active_record_connection.try(:current_database)
     end
     
-    def sql
-      options['sql']
+    def execute
+      options['execute']
     end
         
     private

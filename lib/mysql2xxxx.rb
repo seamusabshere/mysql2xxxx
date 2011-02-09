@@ -15,4 +15,5 @@ module Mysql2xxxx
   autoload :Properties, 'mysql2xxxx/properties'
   autoload :Client, 'mysql2xxxx/client'
   autoload :ExtraOutputs, 'mysql2xxxx/extra_outputs'
+  autoload :Cli, 'mysql2xxxx/cli'
 end

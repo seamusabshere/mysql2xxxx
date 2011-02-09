@@ -21,7 +21,7 @@ module Mysql2xxxx
     def to_file(f)
       first = true
       f.write '['
-      client.select_each(properties.sql) do |hsh|
+      client.select_each(properties.execute) do |hsh|
         line = if first
           first = false
           hsh.to_json
