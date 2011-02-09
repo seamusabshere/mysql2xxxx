@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Seamus Abshere"]
   s.email       = ["seamus@abshere.net"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/seamusabshere/mysql2xxxx"
   s.summary     = %q{In a memory-sensitive way (but not fast), dump mysql tables to JSON, CSV, XML.}
   s.description = %q{Gives you binaries like mysql2csv, mysql2json, and mysql2xml, and Ruby classes to match.}
 
