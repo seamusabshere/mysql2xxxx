@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
   s.name        = "mysql2xxxx"
   s.version     = Mysql2xxxx::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
+  s.authors     = ["Seamus Abshere"]
+  s.email       = ["seamus@abshere.net"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{In a memory-sensitive way (but not fast), dump mysql tables to JSON, CSV, XML}
+  s.description = %q{Gives you a Ruby interface and also binaries.}
 
   s.rubyforge_project = "mysql2xxxx"
 
@@ -18,4 +18,19 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+  
+  s.add_dependency 'activesupport'
+  s.add_dependency 'mysql2'
+  s.add_dependency 'builder'
+  unless RUBY_VERSION >= '1.9'
+    s.add_dependency 'fastercsv'
+  end
+  
+  s.add_development_dependency 'activerecord'
+  s.add_development_dependency 'shell-executer'
+  if RUBY_VERSION >= '1.9'
+    s.add_development_dependency 'ruby-debug19'
+  else
+    s.add_development_dependency 'ruby-debug'
+  end
 end
