@@ -43,9 +43,11 @@ module Mysql2xxxx
     private
     
     def active_record_connection
-      if defined? ::ActiveRecord
+      if defined?(::ActiveRecord)
         ::ActiveRecord::Base.connection
       end
+    rescue
+      # oh well
     end
     
     def active_record_config

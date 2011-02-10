@@ -14,14 +14,11 @@ module Mysql2xxxx
       @properties = Properties.new options
     end
     
-    def client
-      @client ||= Client.new properties
-    end
-
     def to_file(f)
+      @client = ::Mysql2::Client.new properties.database_config
       first = true
       f.write '['
-      client.select_each(properties.execute) do |hsh|
+      @client.query(properties.execute).each do |hsh|
         line = if first
           first = false
           hsh.to_json
@@ -32,6 +29,8 @@ module Mysql2xxxx
       end
       f.write ']'
       nil
+    ensure
+      @client.try :close
     end
   end
 end

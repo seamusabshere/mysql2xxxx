@@ -14,13 +14,10 @@ module Mysql2xxxx
       @properties = Properties.new options
     end
     
-    def client
-      @client ||= Client.new properties
-    end
-
     def to_file(f)
+      @client = ::Mysql2::Client.new properties.database_config
       keys = nil
-      client.select_each(properties.execute) do |hsh|
+      @client.query(properties.execute).each do |hsh|
         unless keys
           keys = hsh.keys
           f.write keys.to_csv
@@ -28,6 +25,8 @@ module Mysql2xxxx
         f.write keys.inject([]) { |memo, k| memo.push hsh[k] }.to_csv
       end
       nil
+    ensure
+      @client.try :close
     end
   end
 end
