@@ -18,7 +18,7 @@ module Mysql2xxxx
       keys = nil
 
       @client = ::Mysql2::Client.new properties.database_config
-      parts = properties.execute.split(';')
+      parts = properties.execute.gsub(/\s+/, ' ').strip.chomp(';').split(';')
       parts[0..-2].each do |part|
         @client.query part
       end
