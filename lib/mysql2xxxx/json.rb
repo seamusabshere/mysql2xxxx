@@ -15,10 +15,15 @@ module Mysql2xxxx
     end
     
     def to_file(f)
-      @client = ::Mysql2::Client.new properties.database_config
       first = true
       f.write '['
-      @client.query(properties.execute).each do |hsh|
+      
+      @client = ::Mysql2::Client.new properties.database_config
+      parts = properties.execute.split(';')
+      parts[0..-2].each do |part|
+        @client.query part
+      end
+      @client.query(parts.last).each do |hsh|
         line = if first
           first = false
           hsh.to_json
@@ -27,6 +32,7 @@ module Mysql2xxxx
         end
         f.write line
       end
+      
       f.write ']'
       nil
     ensure
