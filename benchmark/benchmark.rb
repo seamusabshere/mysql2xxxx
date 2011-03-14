@@ -8,8 +8,10 @@ ENV['MEMPROF_REPORT_PATH'] = File.expand_path('memprof.txt')
 ENV['DUMP_PATH'] = File.expand_path('a.dump')
 ENV['EXECUTE'] = 'SELECT * FROM five_thousand_rows'
 FORMATS = %w{ CSV JSON XML }
+SAMPLE_RATE = 0.3
+TOP_OBJECTS = 25
 
-require 'benchmark'
+require 'fileutils'
 require 'rubygems' unless RUBY_VERSION >= '1.9'
 require 'posix/spawn'
 $LOAD_PATH.unshift File.join(ENV['HERE'], '..', 'lib')
@@ -21,19 +23,28 @@ $stderr.puts "Loading sample data..."
 
 now = Time.now
 mem = {}
-time = {}
+$mem2 = {}
 
-FORMATS.each do |format|
-  $stderr.puts "Benchmarking #{format}..."
-  time[format] = Benchmark.realtime do
+begin
+  FORMATS.each do |format|
+    $stderr.puts "Benchmarking #{format}..."
     pid = POSIX::Spawn.spawn('ruby', "#{ENV['HERE']}/target.rb", format)
-    stat = Process::waitpid(pid)
+    watcher = Thread.new do
+      while true
+        sleep SAMPLE_RATE
+        $mem2[format] ||= []
+        $mem2[format] << `ps -o time= -o rss= -p #{pid}`
+      end
+    end
+    Process.waitpid(pid)
+    watcher.kill
+    raise "target failed on #{format}" unless $?.success?
+    mem[format] = IO.readlines(ENV['MEMPROF_REPORT_PATH'])[0..TOP_OBJECTS-1]
   end
-  mem[format] = IO.readlines(ENV['MEMPROF_REPORT_PATH'])[0..9]
+ensure
+  FileUtils.rm_f ENV['MEMPROF_REPORT_PATH']
+  FileUtils.rm_f ENV['DUMP_PATH']
 end
-
-File.unlink ENV['MEMPROF_REPORT_PATH']
-File.unlink ENV['DUMP_PATH']
 
 $stderr.puts "Writing report..."
 File.open File.expand_path(File.join(ENV['HERE'], 'results', "#{Mysql2xxxx::VERSION}-#{now.to_formatted_s(:number)}.txt")), 'w' do |f|
@@ -43,9 +54,12 @@ File.open File.expand_path(File.join(ENV['HERE'], 'results', "#{Mysql2xxxx::VERS
   f.puts %{System:  #{`uname -a`}}
   FORMATS.each do |format|
     f.puts
-    f.puts format
-    f.puts %{Time: #{time[format]}}
-    f.puts %{Memory:}
+    f.puts "#" * 50
+    f.puts "# #{format}"
+    f.puts "#" * 50
+    f.puts %{Real memory over time (sampled every #{SAMPLE_RATE} sec):}
+    f.puts $mem2[format]
+    f.puts %{Memprof object counts (top #{TOP_OBJECTS}):}
     f.puts mem[format]
   end
 end

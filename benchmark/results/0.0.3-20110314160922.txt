@@ -1,0 +1,185 @@
+mysql2xxxx
+Version: 0.0.3
+Run:     Mon Mar 14 16:09:22 -0500 2011
+System:  Darwin vidalia 10.6.0 Darwin Kernel Version 10.6.0: Wed Nov 10 18:13:17 PST 2010; root:xnu-1504.9.26~3/RELEASE_I386 i386
+
+##################################################
+# CSV
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  11204
+  0:00.56  20488
+  0:00.86  20876
+  0:01.17  30580
+  0:01.48  32684
+  0:01.79  33980
+  0:02.09  35268
+  0:02.39  36892
+  0:02.70  38004
+  0:03.01  39120
+  0:03.31  40264
+  0:03.62  41184
+  0:03.93  41292
+  0:04.24  41472
+  0:04.55  41736
+  0:04.85  49796
+  0:05.16  53260
+Memprof object counts (top 25):
+  55050 ./benchmark/../lib/mysql2xxxx/csv.rb:25:String
+  24858 ./benchmark/../lib/mysql2xxxx/csv.rb:25:Float
+  10000 (eval):4:Array
+   5423 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/rational.rb:94:Rational
+   5052 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:437:Array
+   5001 ./benchmark/../lib/mysql2xxxx/csv.rb:25:Hash
+   5000 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:754:Date
+   1320 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1798:String
+   1301 ./benchmark/../lib/mysql2xxxx/csv.rb:14:Array
+   1300 ./benchmark/../lib/mysql2xxxx/csv.rb:30:__varmap__
+    682 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1795:String
+    421 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1852:String
+    372 (__FORWARDABLE__):5:__node__
+    279 (__FORWARDABLE__):3:__node__
+    217 (__FORWARDABLE__):1:__node__
+    211 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1849:String
+    210 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:428:Float
+    210 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:426:Float
+    210 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:423:Float
+    210 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:422:Float
+    155 (__FORWARDABLE__):6:__node__
+    120 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/stringio.bundle:0:__node__
+    108 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:1383:String
+    108 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1849:Array
+    106 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1852:Method
+
+##################################################
+# JSON
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  11560
+  0:00.56  19068
+  0:00.73  19508
+  0:01.04  19508
+  0:01.35  19508
+  0:01.65  23616
+  0:01.96  27984
+  0:02.27  28868
+  0:02.58  28896
+  0:02.89  29900
+  0:03.19  29904
+  0:03.50  29904
+  0:03.80  30352
+  0:04.11  31188
+  0:04.42  31264
+  0:04.72  32216
+  0:05.03  32216
+  0:05.34  32492
+  0:05.65  33240
+  0:05.95  33240
+  0:06.26  33996
+  0:06.56  34268
+  0:06.87  34268
+  0:07.18  34508
+  0:07.48  35292
+  0:07.79  35328
+  0:08.10  35328
+  0:08.40  36320
+  0:08.71  36320
+  0:09.02  36548
+  0:09.32  37348
+  0:09.63  37368
+  0:09.94  37652
+  0:10.25  38372
+  0:10.55  38372
+  0:10.86  38376
+  0:11.17  38376
+  0:11.47  38516
+  0:11.78  39400
+  0:12.08  39400
+  0:12.38  39404
+  0:12.69  39404
+  0:13.00  39404
+  0:13.31  46788
+  0:13.61  48948
+  0:13.92  48948
+  0:14.22  49860
+  0:14.53  49860
+  0:14.84  49860
+  0:15.15  50176
+  0:15.46  50828
+  0:15.76  50828
+  0:16.07  50996
+  0:16.37  50996
+Memprof object counts (top 25):
+  55050 ./benchmark/../lib/mysql2xxxx/json.rb:26:String
+  24858 ./benchmark/../lib/mysql2xxxx/json.rb:26:Float
+  10000 (eval):4:Array
+   5025 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/rational.rb:94:Rational
+   5003 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:437:Array
+   5001 ./benchmark/../lib/mysql2xxxx/json.rb:26:Hash
+   5000 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:754:Date
+    280 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:69:__node__
+    278 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:125:String
+    271 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:73:__node__
+    260 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:70:__node__
+    181 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:235:Array
+    170 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/syck.bundle:0:__node__
+    160 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:67:__node__
+    160 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:65:__node__
+    148 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:75:__node__
+    140 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:132:String
+    120 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/stringio.bundle:0:__node__
+    117 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:247:String
+    105 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:68:__node__
+     96 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:247:Array
+     79 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:236:Array
+     64 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/deprecation/proxy_wrappers.rb:13:__node__
+     60 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:72:__node__
+     60 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:71:__node__
+
+##################################################
+# XML
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  11168
+  0:00.55  20512
+  0:00.83  20540
+  0:01.14  24940
+  0:01.45  31596
+  0:01.75  33208
+  0:02.06  34668
+  0:02.36  35856
+  0:02.66  36800
+  0:02.97  37756
+  0:03.28  39368
+  0:03.58  40392
+  0:03.89  41420
+  0:04.19  41420
+  0:04.50  41424
+  0:04.79  48808
+  0:05.01  51660
+Memprof object counts (top 25):
+  55050 ./benchmark/../lib/mysql2xxxx/xml.rb:23:String
+  28467 ./benchmark/../lib/mysql2xxxx/xml.rb:26:String
+  24858 ./benchmark/../lib/mysql2xxxx/xml.rb:23:Float
+  12593 ./benchmark/../lib/mysql2xxxx/xml.rb:26:Array
+  10000 (eval):4:Array
+   7016 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/rational.rb:94:Rational
+   6300 ./benchmark/../lib/mysql2xxxx/xml.rb:25:Array
+   5251 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:437:Array
+   5001 ./benchmark/../lib/mysql2xxxx/xml.rb:23:Hash
+   5000 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:754:Date
+   1007 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:423:Float
+   1006 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:428:Float
+   1006 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:426:Float
+   1006 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:422:Float
+    504 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:1383:String
+    504 ./benchmark/../lib/mysql2xxxx/xml.rb:23:__varmap__
+    503 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:429:Float
+    503 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:428:Array
+    503 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:427:Float
+    503 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:423:Array
+    502 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:402:Float
+    502 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:401:Float
+    254 ./benchmark/../lib/mysql2xxxx/xml.rb:28:String
+    253 ./benchmark/../lib/mysql2xxxx/xml.rb:24:String
+    252 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/rational.rb:337:Array
