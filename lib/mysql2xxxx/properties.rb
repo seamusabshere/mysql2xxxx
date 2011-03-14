@@ -12,7 +12,8 @@ module Mysql2xxxx
         :password => password,
         :host => host,
         :port => port,
-        :database => database
+        :database => database,
+        :cache_rows => false
       }
     end
 
