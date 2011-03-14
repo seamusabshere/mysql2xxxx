@@ -1,0 +1,46 @@
+mysql2xxxx
+Version: 0.0.3
+Run:     Mon Mar 14 15:33:20 -0500 2011
+System:  Darwin vidalia 10.6.0 Darwin Kernel Version 10.6.0: Wed Nov 10 18:13:17 PST 2010; root:xnu-1504.9.26~3/RELEASE_I386 i386
+
+CSV
+Time: 5.2898850440979
+Memory:
+  55050 ./benchmark/../lib/mysql2xxxx/csv.rb:25:String
+  24858 ./benchmark/../lib/mysql2xxxx/csv.rb:25:Float
+  10000 (eval):4:Array
+   5423 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/rational.rb:94:Rational
+   5052 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:437:Array
+   5001 ./benchmark/../lib/mysql2xxxx/csv.rb:25:Hash
+   5000 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:754:Date
+   1320 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1798:String
+   1301 ./benchmark/../lib/mysql2xxxx/csv.rb:14:Array
+   1300 ./benchmark/../lib/mysql2xxxx/csv.rb:30:__varmap__
+
+JSON
+Time: 15.9774219989777
+Memory:
+  55050 ./benchmark/../lib/mysql2xxxx/json.rb:26:String
+  24858 ./benchmark/../lib/mysql2xxxx/json.rb:26:Float
+  10000 (eval):4:Array
+   5025 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/rational.rb:94:Rational
+   5003 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:437:Array
+   5001 ./benchmark/../lib/mysql2xxxx/json.rb:26:Hash
+   5000 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:754:Date
+    280 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:69:__node__
+    278 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:125:String
+    271 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:73:__node__
+
+XML
+Time: 5.43590211868286
+Memory:
+  55050 ./benchmark/../lib/mysql2xxxx/xml.rb:23:String
+  28467 ./benchmark/../lib/mysql2xxxx/xml.rb:26:String
+  24858 ./benchmark/../lib/mysql2xxxx/xml.rb:23:Float
+  12593 ./benchmark/../lib/mysql2xxxx/xml.rb:26:Array
+  10000 (eval):4:Array
+   7016 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/rational.rb:94:Rational
+   6300 ./benchmark/../lib/mysql2xxxx/xml.rb:25:Array
+   5251 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:437:Array
+   5001 ./benchmark/../lib/mysql2xxxx/xml.rb:23:Hash
+   5000 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/date.rb:754:Date
