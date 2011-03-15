@@ -1,3 +1,6 @@
+unless RUBY_VERSION >= '1.9'
+  $KCODE = 'U'
+end
 require 'active_support'
 require 'active_support/version'
 %w{

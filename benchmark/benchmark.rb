@@ -12,7 +12,9 @@ SAMPLE_RATE = 0.3
 TOP_OBJECTS = 25
 
 require 'fileutils'
-require 'rubygems' unless RUBY_VERSION >= '1.9'
+unless RUBY_VERSION >= '1.9'
+  require 'rubygems'
+end
 require 'posix/spawn'
 $LOAD_PATH.unshift File.join(ENV['HERE'], '..', 'lib')
 require 'mysql2xxxx'
@@ -39,7 +41,7 @@ begin
     Process.waitpid(pid)
     watcher.kill
     raise "target failed on #{format}" unless $?.success?
-    mem[format] = IO.readlines(ENV['MEMPROF_REPORT_PATH'])[0..TOP_OBJECTS-1]
+    mem[format] = IO.readlines(ENV['MEMPROF_REPORT_PATH'])[0..TOP_OBJECTS-1] unless RUBY_VERSION >= '1.9'
   end
 ensure
   FileUtils.rm_f ENV['MEMPROF_REPORT_PATH']
@@ -47,7 +49,7 @@ ensure
 end
 
 $stderr.puts "Writing report..."
-File.open File.expand_path(File.join(ENV['HERE'], 'results', "#{Mysql2xxxx::VERSION}-#{now.to_formatted_s(:number)}.txt")), 'w' do |f|
+File.open File.expand_path(File.join(ENV['HERE'], 'results', "#{Mysql2xxxx::VERSION}-#{now.to_formatted_s(:number)}-#{RUBY_VERSION >= '1.9' ? 'ruby19' : 'ruby18'}.txt")), 'w' do |f|
   f.puts %{mysql2xxxx}
   f.puts %{Version: #{Mysql2xxxx::VERSION}}
   f.puts %{Run:     #{now}}
@@ -59,7 +61,11 @@ File.open File.expand_path(File.join(ENV['HERE'], 'results', "#{Mysql2xxxx::VERS
     f.puts "#" * 50
     f.puts %{Real memory over time (sampled every #{SAMPLE_RATE} sec):}
     f.puts $mem2[format]
-    f.puts %{Memprof object counts (top #{TOP_OBJECTS}):}
-    f.puts mem[format]
+    if RUBY_VERSION >= '1.9'
+      f.puts %{Memprof object counts not available (ruby 1.9)}
+    else
+      f.puts %{Memprof object counts (top #{TOP_OBJECTS}):}
+      f.puts mem[format]
+    end
   end
 end

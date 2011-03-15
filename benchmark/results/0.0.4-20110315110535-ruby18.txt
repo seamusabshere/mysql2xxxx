@@ -1,0 +1,149 @@
+mysql2xxxx
+Version: 0.0.4
+Run:     Tue Mar 15 11:05:35 -0500 2011
+System:  Darwin vidalia 10.6.0 Darwin Kernel Version 10.6.0: Wed Nov 10 18:13:17 PST 2010; root:xnu-1504.9.26~3/RELEASE_I386 i386
+
+##################################################
+# CSV
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  11672
+  0:00.60  19936
+  0:00.91  19408
+  0:01.29  20460
+  0:01.56  20460
+  0:01.87  20460
+  0:02.17  20460
+Memprof object counts (top 25):
+   5044 ./benchmark/../lib/mysql2xxxx/writer.rb:43:String
+   5019 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1798:String
+   1617 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1852:String
+    808 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1849:String
+    408 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1849:Array
+    406 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1092:__scope__
+    405 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1091:Hash
+    404 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1852:Method
+    404 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1852:MatchData
+    404 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1490:String
+    372 (__FORWARDABLE__):5:__node__
+    279 (__FORWARDABLE__):3:__node__
+    217 (__FORWARDABLE__):1:__node__
+    206 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1092:String
+    205 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1826:String
+    205 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1734:String
+    205 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1423:Hash
+    204 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:2004:Hash
+    204 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1831:Hash
+    204 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1830:Regexp
+    204 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1826:Regexp
+    204 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1823:String
+    204 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1823:Regexp
+    204 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1820:Regexp
+    204 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1791:Proc
+
+##################################################
+# JSON
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  12364
+  0:00.61  17128
+  0:00.94  17536
+  0:01.24  17536
+  0:01.54  17536
+  0:01.83  17536
+  0:02.12  17536
+  0:02.41  17536
+  0:02.70  17536
+  0:02.93  17536
+  0:03.06  17536
+  0:03.37  17536
+  0:03.68  17536
+  0:03.98  17536
+  0:04.28  17536
+  0:04.58  17536
+  0:04.88  17536
+  0:05.18  17536
+  0:05.48  17536
+  0:05.79  17536
+  0:06.10  17536
+  0:06.40  17536
+  0:06.71  17536
+  0:07.02  17536
+  0:07.36  17536
+  0:07.67  17536
+  0:07.97  17536
+  0:08.28  17536
+  0:08.59  17536
+  0:08.89  17536
+  0:09.20  17536
+  0:09.52  17536
+  0:09.82  17536
+  0:10.13  17536
+  0:10.44  17536
+  0:10.74  17536
+  0:11.04  17536
+Memprof object counts (top 25):
+   3792 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:125:String
+   2882 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:73:__node__
+   1922 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:235:Array
+   1898 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:132:String
+   1094 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:247:String
+   1022 ./benchmark/../lib/mysql2xxxx/writer.rb:51:String
+    989 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:247:Array
+    950 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:236:Array
+    280 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:69:__node__
+    260 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:70:__node__
+    170 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/syck.bundle:0:__node__
+    160 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:67:__node__
+    160 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:65:__node__
+    148 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:75:__node__
+    120 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/stringio.bundle:0:__node__
+    117 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/bigdecimal.bundle:0:__node__
+    114 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:61:Hash
+    105 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:68:__node__
+     73 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:247:__node__
+     64 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/deprecation/proxy_wrappers.rb:13:__node__
+     63 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:237:__node__
+     60 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:72:__node__
+     60 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:71:__node__
+     60 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:64:__node__
+     60 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:63:__node__
+
+##################################################
+# XML
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.29  10920
+  0:00.54  18088
+  0:00.83  17836
+  0:01.12  17496
+  0:01.43  17836
+  0:01.73  18520
+  0:02.03  17496
+  0:02.33  18520
+Memprof object counts (top 25):
+   7638 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:16:String
+   2539 ./benchmark/../lib/mysql2xxxx/writer.rb:43:String
+   2538 ./benchmark/../lib/mysql2xxxx/writer.rb:7:Array
+   2537 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:16:Array
+    120 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/stringio.bundle:0:__node__
+    109 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:15:__node__
+    103 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:18:String
+    103 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:14:String
+    102 ./benchmark/../lib/mysql2xxxx/writer.rb:43:Array
+     28 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:16:__node__
+     25 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:4:String
+     25 ./benchmark/../lib/mysql2xxxx/writer.rb:11:String
+     22 ./benchmark/../lib/mysql2xxxx/writer.rb:35:__node__
+     20 ./benchmark/../lib/mysql2xxxx/writer.rb:16:__node__
+     14 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:12:__node__
+     14 ./benchmark/../lib/mysql2xxxx/properties.rb:18:__node__
+     12 ./benchmark/../lib/mysql2xxxx/writer.rb:11:__node__
+     12 ./benchmark/../lib/mysql2xxxx/properties.rb:36:__node__
+     12 ./benchmark/../lib/mysql2xxxx/properties.rb:32:__node__
+     12 ./benchmark/../lib/mysql2xxxx/properties.rb:14:__node__
+     12 ./benchmark/../lib/mysql2xxxx/properties.rb:10:__node__
+     11 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:4:__node__
+     10 ./benchmark/../lib/mysql2xxxx/writer.rb:34:__node__
+     10 ./benchmark/../lib/mysql2xxxx/properties.rb:40:__node__
+      9 ./benchmark/../lib/mysql2xxxx/writer.rb:26:__node__

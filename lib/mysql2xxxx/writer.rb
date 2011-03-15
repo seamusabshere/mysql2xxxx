@@ -31,7 +31,7 @@ module Mysql2xxxx
     def dbh
       return @dbh if @dbh.is_a? ::Mysql
       @dbh = ::Mysql.init
-      @dbh.options ::Mysql::SET_CHARSET_NAME, 'utf8'
+      @dbh.options ::Mysql::SET_CHARSET_NAME, properties.charset
       @dbh.real_connect properties.host, properties.user, properties.password, properties.database, properties.port, properties.socket
       # so that we can use_result instead of store_result
       @dbh.query_with_result = false

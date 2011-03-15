@@ -29,10 +29,10 @@ Gem::Specification.new do |s|
   
   s.add_development_dependency 'activerecord'
   s.add_development_dependency 'shell-executer'
+  s.add_development_dependency 'posix-spawn'
   if RUBY_VERSION >= '1.9'
     s.add_development_dependency 'ruby-debug19'
   else
-    s.add_development_dependency 'posix-spawn'
     s.add_development_dependency 'memprof'
     s.add_development_dependency 'ruby-debug'
   end
