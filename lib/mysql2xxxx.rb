@@ -7,13 +7,13 @@ require 'active_support/version'
 }.each do |active_support_3_requirement|
   require active_support_3_requirement
 end if ::ActiveSupport::VERSION::MAJOR == 3
-require 'mysql2'
+require 'mysql'
 
 module Mysql2xxxx
-  autoload :JSON, 'mysql2xxxx/json'
-  autoload :CSV, 'mysql2xxxx/csv'
-  autoload :XML, 'mysql2xxxx/xml'
+  autoload :JSON, 'mysql2xxxx/writer/json'
+  autoload :CSV, 'mysql2xxxx/writer/csv'
+  autoload :XML, 'mysql2xxxx/writer/xml'
+  autoload :Writer, 'mysql2xxxx/writer'
   autoload :Properties, 'mysql2xxxx/properties'
-  autoload :ExtraOutputs, 'mysql2xxxx/extra_outputs'
   autoload :Cli, 'mysql2xxxx/cli'
 end

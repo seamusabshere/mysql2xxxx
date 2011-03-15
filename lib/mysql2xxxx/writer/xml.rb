@@ -1,11 +1,7 @@
 module Mysql2xxxx
-  class XML
-    include ExtraOutputs
-    
-    attr_reader :properties
-    
-    def initialize(options = {})
-      @properties = Properties.new options
+  class XML < Writer
+    def escaped_keys
+      @escaped_keys ||= keys.map { |k| k.to_xs }
     end
     
     # sabshere 2/10/11 dkastner pointed out that this doesn't include metadata like later versions of mysql do
@@ -14,24 +10,15 @@ module Mysql2xxxx
     def to_file(f)
       f.write %{<?xml version="1.0" encoding="utf-8" ?>}
       f.write %{<resultset statement="#{properties.execute.to_xs}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">}
-      
-      @client = ::Mysql2::Client.new properties.database_config
-      parts = properties.execute.gsub(/\s+/, ' ').strip.chomp(';').split(';')
-      parts[0..-2].each do |part|
-        @client.query part
-      end
-      @client.query(parts.last).each do |hsh|
+      stream_arrays do |ary|
         f.write %{<row>}
-        hsh.each do |k, v|
-          f.write %{<field name="#{k.to_xs}"#{' xsi:nil="true"' if v.nil?}>#{v.to_s.to_xs}</field>}
+        ary.each_with_index do |v, i|
+          f.write %{<field name="#{escaped_keys[i]}"#{' xsi:nil="true"' if v.nil?}>#{v.to_s.to_xs}</field>}
         end
         f.write %{</row>}
       end
-
       f.write %{</resultset>}
       nil
-    ensure
-      @client.try :close
     end
   end
 end

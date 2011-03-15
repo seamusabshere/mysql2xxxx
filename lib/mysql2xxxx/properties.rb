@@ -6,17 +6,6 @@ module Mysql2xxxx
       @options.stringify_keys!
     end
     
-    def database_config
-      {
-        :username => user,
-        :password => password,
-        :host => host,
-        :port => port,
-        :database => database,
-        :cache_rows => false
-      }
-    end
-
     def user
       options['user'] || active_record_config.try(:[], :username)
     end
@@ -31,6 +20,10 @@ module Mysql2xxxx
     
     def port
       options['port'] || active_record_config.try(:[], :port)
+    end
+    
+    def socket
+      options['socket'] || active_record_config.try(:[], :socket)
     end
     
     def database

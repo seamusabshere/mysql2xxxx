@@ -20,20 +20,20 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_dependency 'activesupport', '>=2.3.10'
-  s.add_dependency 'mysql2'
+  s.add_dependency 'mysql'
   s.add_dependency 'mixlib-cli'
   s.add_dependency 'fast_xs'
   unless RUBY_VERSION >= '1.9'
     s.add_dependency 'fastercsv'
   end
   
-  s.add_development_dependency 'memprof'
   s.add_development_dependency 'activerecord'
   s.add_development_dependency 'shell-executer'
-  s.add_development_dependency 'posix-spawn'
   if RUBY_VERSION >= '1.9'
     s.add_development_dependency 'ruby-debug19'
   else
+    s.add_development_dependency 'posix-spawn'
+    s.add_development_dependency 'memprof'
     s.add_development_dependency 'ruby-debug'
   end
 end

@@ -1,0 +1,147 @@
+mysql2xxxx
+Version: 0.0.4
+Run:     Mon Mar 14 19:06:40 -0500 2011
+System:  Darwin vidalia 10.6.0 Darwin Kernel Version 10.6.0: Wed Nov 10 18:13:17 PST 2010; root:xnu-1504.9.26~3/RELEASE_I386 i386
+
+##################################################
+# CSV
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  13452
+  0:00.61  20140
+  0:00.91  19476
+  0:01.22  20152
+  0:01.53  18456
+  0:01.84  19632
+  0:02.14  20504
+Memprof object counts (top 25):
+    575 ./benchmark/../lib/mysql2xxxx/writer.rb:40:String
+    527 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1798:String
+    372 (__FORWARDABLE__):5:__node__
+    279 (__FORWARDABLE__):3:__node__
+    217 (__FORWARDABLE__):1:__node__
+    169 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1852:String
+    155 (__FORWARDABLE__):6:__node__
+    120 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/stringio.bundle:0:__node__
+     93 (__FORWARDABLE__):7:__node__
+     84 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1849:String
+     62 (__FORWARDABLE__):4:__node__
+     46 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1849:Array
+     44 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1091:Hash
+     43 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1092:__scope__
+     42 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1852:Method
+     42 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1852:MatchData
+     42 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1490:String
+     41 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/forwardable.rb:148:__node__
+     31 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:758:__node__
+     31 (__FORWARDABLE__):8:__node__
+     31 (__FORWARDABLE__):5:Regexp
+     25 ./benchmark/../lib/mysql2xxxx/writer.rb:11:String
+     24 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1831:Hash
+     24 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1830:Regexp
+     24 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/fastercsv-1.5.4/lib/faster_csv.rb:1826:String
+
+##################################################
+# JSON
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.31  13736
+  0:00.61  17536
+  0:00.91  17536
+  0:01.19  17536
+  0:01.41  17536
+  0:01.71  17536
+  0:02.02  17536
+  0:02.32  17536
+  0:02.63  17536
+  0:02.93  17536
+  0:03.24  17536
+  0:03.55  17536
+  0:03.85  17536
+  0:04.16  17536
+  0:04.47  17536
+  0:04.79  17536
+  0:05.09  17536
+  0:05.40  17536
+  0:05.71  17536
+  0:06.01  17536
+  0:06.32  17536
+  0:06.62  17536
+  0:06.93  17536
+  0:07.24  17536
+  0:07.55  17536
+  0:07.85  17536
+  0:08.16  17536
+  0:08.46  17536
+  0:08.77  17536
+  0:09.08  17536
+  0:09.38  17536
+  0:09.69  17536
+  0:10.00  17536
+  0:10.30  17536
+  0:10.61  17536
+Memprof object counts (top 25):
+   8360 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:125:String
+   6361 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:73:__node__
+   4261 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:235:Array
+   4183 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:132:String
+   2357 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:247:String
+   2191 ./benchmark/../lib/mysql2xxxx/writer.rb:48:String
+   2183 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:247:Array
+   2080 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:236:Array
+    280 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:69:__node__
+    260 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:70:__node__
+    249 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:61:Hash
+    170 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/syck.bundle:0:__node__
+    160 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:67:__node__
+    160 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:65:__node__
+    148 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:75:__node__
+    120 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/stringio.bundle:0:__node__
+    119 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:247:__node__
+    117 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/bigdecimal.bundle:0:__node__
+    109 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:237:__node__
+    105 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/yaml/tag.rb:68:__node__
+    103 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:235:__node__
+     87 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:41:Array
+     86 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:30:ActiveSupport::JSON::Encoding::Encoder
+     86 /Users/seamus/.rvm/gems/ruby-1.8.7-p334/gems/activesupport-3.0.5/lib/active_support/json/encoding.rb:236:Hash
+     86 ./benchmark/../lib/mysql2xxxx/writer.rb:48:Hash
+
+##################################################
+# XML
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  13668
+  0:00.61  16952
+  0:00.95  16952
+  0:01.26  17916
+  0:01.56  17532
+  0:01.87  17532
+  0:02.18  17976
+  0:02.41  18556
+Memprof object counts (top 25):
+  16407 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:16:String
+   5455 ./benchmark/../lib/mysql2xxxx/writer.rb:7:Array
+   5453 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:16:Array
+   5439 ./benchmark/../lib/mysql2xxxx/writer.rb:40:String
+    226 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:15:__node__
+    220 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:18:String
+    220 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:14:String
+    219 ./benchmark/../lib/mysql2xxxx/writer.rb:40:Array
+    120 /Users/seamus/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/i686-darwin10.6.0/stringio.bundle:0:__node__
+     28 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:16:__node__
+     25 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:4:String
+     25 ./benchmark/../lib/mysql2xxxx/writer.rb:11:String
+     20 ./benchmark/../lib/mysql2xxxx/writer.rb:16:__node__
+     18 ./benchmark/../lib/mysql2xxxx/writer.rb:33:__node__
+     14 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:12:__node__
+     12 ./benchmark/../lib/mysql2xxxx/writer.rb:11:__node__
+     12 ./benchmark/../lib/mysql2xxxx/properties.rb:32:__node__
+     12 ./benchmark/../lib/mysql2xxxx/properties.rb:28:__node__
+     12 ./benchmark/../lib/mysql2xxxx/properties.rb:24:__node__
+     12 ./benchmark/../lib/mysql2xxxx/properties.rb:20:__node__
+     11 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:4:__node__
+     10 ./benchmark/../lib/mysql2xxxx/properties.rb:36:__node__
+      9 ./benchmark/../lib/mysql2xxxx/writer.rb:26:__node__
+      8 ./benchmark/../lib/mysql2xxxx/writer.rb:73:__node__
+      8 ./benchmark/../lib/mysql2xxxx/writer.rb:32:__node__

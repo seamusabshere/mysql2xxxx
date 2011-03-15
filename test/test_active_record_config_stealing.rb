@@ -2,7 +2,7 @@ require 'helper'
 
 # just to be able to steal the config
 ActiveRecord::Base.establish_connection(
-  'adapter' => 'mysql2',
+  'adapter' => 'mysql',
   'database' => TEST_DB,
   'username' => MYSQL_USER,
   'password' => MYSQL_PASS
