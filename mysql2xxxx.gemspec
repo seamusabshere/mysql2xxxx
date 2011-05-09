@@ -23,9 +23,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'mysql'
   s.add_dependency 'mixlib-cli'
   s.add_dependency 'fast_xs'
-  unless RUBY_VERSION >= '1.9'
-    s.add_dependency 'fastercsv'
-  end
+  s.add_dependency 'fastercsv'
+  s.add_dependency 'ensure-encoding'
   
   s.add_development_dependency 'activerecord'
   s.add_development_dependency 'shell-executer'

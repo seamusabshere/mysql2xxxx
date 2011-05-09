@@ -1,4 +1,10 @@
 require 'stringio'
+if ::RUBY_VERSION >= '1.9'
+  require 'ensure/encoding'
+else
+  require 'iconv'
+end
+
 module Mysql2xxxx
   class Writer
     attr_reader :properties
@@ -41,7 +47,7 @@ module Mysql2xxxx
     def stream_arrays
       raise "dead connection" if @dead
       while ary = result.fetch_row do
-        yield ary
+        yield ary.map { |v| recode_as_utf8 v }
       end
       close
     end
@@ -49,9 +55,24 @@ module Mysql2xxxx
     def stream_hashes
       raise "dead connection" if @dead
       while hsh = result.fetch_hash do
-        yield hsh
+        yield hsh.inject({}) { |memo, (k, v)| memo[recode_as_utf8(k)] = recode_as_utf8(v); memo }
       end
       close
+    end
+    
+    def recode_as_utf8(raw_str)
+      return if raw_str.nil?
+      if ::RUBY_VERSION >= '1.9'
+        $stderr.puts "[mysql2xxxx] Raw - #{raw_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
+        recoded_str = raw_str.ensure_encoding 'UTF-8', :external_encoding => properties.encoding, :invalid_characters => :transcode
+        $stderr.puts "[mysql2xxxx] Recoded - #{recoded_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
+        recoded_str
+      else
+        $stderr.puts "[mysql2xxxx] Raw - #{raw_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
+        recoded_str = ::Iconv.conv('UTF-8//TRANSLIT', properties.encoding, raw_str.to_s + ' ')[0..-2]
+        $stderr.puts "[mysql2xxxx] Recoded - #{recoded_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
+        recoded_str
+      end
     end
     
     def close

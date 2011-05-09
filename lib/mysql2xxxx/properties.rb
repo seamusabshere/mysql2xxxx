@@ -18,14 +18,22 @@ module Mysql2xxxx
       options['host'] || active_record_config.try(:[], :host) || '127.0.0.1'
     end
     
-    # Force utf8 as mysql connection charset
+    # MySQL connection charset
+    #
+    # If you change this, you also have to change :encoding
+    #
+    # Default: utf8
     def charset
-      'utf8'
+      options['charset'] || 'utf8'
     end
     
-    # Force UTF-8 as ruby string encoding (ruby 1.9 only)
+    # Encoding
+    #
+    # If you change this, you also have to change :charset
+    #
+    # Default: UTF-8
     def encoding
-      'UTF-8'
+      options['encoding'] || 'UTF-8'
     end
     
     def port

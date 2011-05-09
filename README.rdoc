@@ -2,9 +2,9 @@
 
 ==Binaries
 
-    mysql2csv --user=dbuser --password=dbpassword --database=dbname --execute="select * from automobile_makes"
-    mysql2json --user=dbuser --password=dbpassword --database=dbname --execute="select * from automobile_makes"
-    mysql2xml --user=dbuser --password=dbpassword --database=dbname --execute="select * from automobile_makes"
+    mysql2csv --user=dbuser --password=dbpassword --database=dbname [--charset=utf8] [--encoding=UTF-8] --execute="select * from automobile_makes"
+    mysql2json --user=dbuser --password=dbpassword --database=dbname [--charset=utf8] [--encoding=UTF-8] --execute="select * from automobile_makes"
+    mysql2xml --user=dbuser --password=dbpassword --database=dbname [--charset=utf8] [--encoding=UTF-8] --execute="select * from automobile_makes"
 
 To see all options
 

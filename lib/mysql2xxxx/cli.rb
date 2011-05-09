@@ -3,7 +3,7 @@ require 'mixlib/cli'
 module Mysql2xxxx
   class Cli
     include ::Mixlib::CLI
-    %w{ user password host Port database }.each do |o|
+    %w{ user password host Port database charset encoding }.each do |o|
       option o.downcase.to_sym,
         :short => "-#{o[0,1]} #{o.upcase}",
         :long  => "--#{o.downcase}=#{o.upcase}",
