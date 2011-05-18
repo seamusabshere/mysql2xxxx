@@ -15,7 +15,7 @@ module Mysql2xxxx
     end
     
     def host
-      options['host'] || active_record_config.try(:[], :host) || '127.0.0.1'
+      options['host'] || active_record_config.try(:[], :host)
     end
     
     # MySQL connection charset
