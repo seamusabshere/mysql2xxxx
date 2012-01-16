@@ -61,8 +61,9 @@ module Mysql2xxxx
     end
     
     def recode_as_utf8(raw_str)
-      return if raw_str.nil?
-      [ iconv.iconv(raw_str), iconv.iconv(nil) ].join
+      unless raw_str.nil?
+        [ iconv.iconv(raw_str), iconv.iconv(nil) ].join
+      end
     end
     
     def close
