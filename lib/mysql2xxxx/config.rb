@@ -32,6 +32,13 @@ module Mysql2xxxx
     def execute
       options[:execute]
     end
+    
+    # Whether to write \N instead of a blank string for NULL. This is helpful for mysqlimport.
+    #
+    # Only applies to CSV
+    def slash_n
+      options.fetch :slash_n, false
+    end
         
     private
     

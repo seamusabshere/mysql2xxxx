@@ -25,4 +25,11 @@ class TestMysql2xxxx < Test::Unit::TestCase
     assert str.include?('Citro&#235;n')
     assert !str.include?('DaimlerChrysler')
   end
+  
+  def test_4_slash_n_for_nulls
+    a = Mysql2xxxx::CSV.new @options
+    assert a.to_s.include?(',,')
+    b = Mysql2xxxx::CSV.new @options.merge(:slash_n => true)
+    assert b.to_s.include?(',\N,')
+  end
 end
