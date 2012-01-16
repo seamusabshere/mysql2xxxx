@@ -6,7 +6,8 @@ class TestMysql2xxxx < Test::Unit::TestCase
     a = Mysql2xxxx::JSON.new @options
     str = a.to_s
     assert str.include?('Acura')
-    assert str.include?('Citroën')
+    # active_support/json encodes non-ascii with \u sequences even though it's not necessary
+    assert str.include?('Citro\u00ebn')
     assert !str.include?('DaimlerChrysler')
   end
 

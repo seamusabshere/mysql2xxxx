@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'mixlib-cli'
   s.add_dependency 'fast_xs'
   s.add_dependency 'fastercsv'
-  s.add_dependency 'json'
+  s.add_dependency 'multi_json'
   
   s.add_development_dependency 'rake'
   s.add_development_dependency 'activerecord'

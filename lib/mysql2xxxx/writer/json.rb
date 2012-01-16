@@ -1,4 +1,4 @@
-require 'json'
+require 'multi_json'
 
 module Mysql2xxxx
   class JSON < Writer
@@ -11,7 +11,7 @@ module Mysql2xxxx
         else
           f.write ','
         end
-        f.write ::JSON.generate(hsh)
+        f.write ::MultiJson.encode(hsh)
       end
       f.write ']'
       nil
