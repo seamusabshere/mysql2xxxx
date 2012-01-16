@@ -1,21 +1,20 @@
 module Mysql2xxxx
-  class Properties
+  class Config
     attr_reader :options
     def initialize(options = {})
-      @options = options.dup
-      @options.stringify_keys!
+      @options = options.symbolize_keys
     end
     
     def user
-      options['user'] || active_record_config.try(:[], :username)
+      options[:user] || active_record_config.try(:[], :username)
     end
     
     def password
-      options['password'] || active_record_config.try(:[], :password)
+      options[:password] || active_record_config.try(:[], :password)
     end
     
     def host
-      options['host'] || active_record_config.try(:[], :host)
+      options[:host] || active_record_config.try(:[], :host)
     end
     
     # MySQL connection charset
@@ -24,7 +23,7 @@ module Mysql2xxxx
     #
     # Default: utf8
     def charset
-      options['charset'] || 'utf8'
+      options[:charset] || 'utf8'
     end
     
     # Encoding
@@ -33,23 +32,23 @@ module Mysql2xxxx
     #
     # Default: UTF-8
     def encoding
-      options['encoding'] || 'UTF-8'
+      options[:encoding] || 'UTF-8'
     end
     
     def port
-      options['port'] || active_record_config.try(:[], :port)
+      options[:port] || active_record_config.try(:[], :port)
     end
     
     def socket
-      options['socket'] || active_record_config.try(:[], :socket)
+      options[:socket] || active_record_config.try(:[], :socket)
     end
     
     def database
-      options['database'] || active_record_connection.try(:current_database)
+      options[:database] || active_record_connection.try(:current_database)
     end
     
     def execute
-      options['execute']
+      options[:execute]
     end
         
     private

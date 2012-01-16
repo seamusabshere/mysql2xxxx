@@ -7,10 +7,10 @@ end
 
 module Mysql2xxxx
   class Writer
-    attr_reader :properties
+    attr_reader :config
     
     def initialize(options = {})
-      @properties = Properties.new options
+      @config = Config.new options
     end
     
     def keys
@@ -19,7 +19,7 @@ module Mysql2xxxx
         
     def last_statement
       return @last_statement if @last_statement.is_a? ::String
-      statements = properties.execute.split(';').select { |statement| statement.to_s.strip.length > 0 }
+      statements = config.execute.split(';').select { |statement| statement.to_s.strip.length > 0 }
       @last_statement = statements.pop
       statements.each do |statement|
         dbh.query statement
@@ -37,8 +37,8 @@ module Mysql2xxxx
     def dbh
       return @dbh if @dbh.is_a? ::Mysql
       @dbh = ::Mysql.init
-      @dbh.options ::Mysql::SET_CHARSET_NAME, properties.charset
-      @dbh.real_connect properties.host, properties.user, properties.password, properties.database, properties.port, properties.socket
+      @dbh.options ::Mysql::SET_CHARSET_NAME, config.charset
+      @dbh.real_connect config.host, config.user, config.password, config.database, config.port, config.socket
       # so that we can use_result instead of store_result
       @dbh.query_with_result = false
       @dbh
@@ -64,12 +64,12 @@ module Mysql2xxxx
       return if raw_str.nil?
       if ::RUBY_VERSION >= '1.9'
         $stderr.puts "[mysql2xxxx] Raw - #{raw_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
-        recoded_str = raw_str.ensure_encoding 'UTF-8', :external_encoding => properties.encoding, :invalid_characters => :transcode
+        recoded_str = raw_str.ensure_encoding 'UTF-8', :external_encoding => config.encoding, :invalid_characters => :transcode
         $stderr.puts "[mysql2xxxx] Recoded - #{recoded_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
         recoded_str
       else
         $stderr.puts "[mysql2xxxx] Raw - #{raw_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
-        recoded_str = ::Iconv.conv('UTF-8//TRANSLIT', properties.encoding, raw_str.to_s + ' ')[0..-2]
+        recoded_str = ::Iconv.conv('UTF-8//TRANSLIT', config.encoding, raw_str.to_s + ' ')[0..-2]
         $stderr.puts "[mysql2xxxx] Recoded - #{recoded_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
         recoded_str
       end

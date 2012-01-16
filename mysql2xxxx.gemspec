@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'fastercsv'
   s.add_dependency 'ensure-encoding'
   
+  s.add_development_dependency 'rake'
   s.add_development_dependency 'activerecord'
   s.add_development_dependency 'shell-executer'
   s.add_development_dependency 'posix-spawn'

@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "mysql2xxxx"
+require 'mysql2xxxx/cli'
 
 cli = Mysql2xxxx::Cli.new
 cli.parse_options

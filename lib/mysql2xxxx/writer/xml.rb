@@ -9,7 +9,7 @@ module Mysql2xxxx
     # i tried to use builder, but the String#to_xs nonsense got in the way
     def to_file(f)
       f.write %{<?xml version="1.0" encoding="utf-8" ?>}
-      f.write %{<resultset statement="#{properties.execute.to_xs}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">}
+      f.write %{<resultset statement="#{config.execute.to_xs}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">}
       stream_arrays do |ary|
         f.write %{<row>}
         ary.each_with_index do |v, i|
