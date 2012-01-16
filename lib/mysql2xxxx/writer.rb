@@ -1,12 +1,12 @@
 require 'stringio'
-if ::RUBY_VERSION >= '1.9'
-  require 'ensure/encoding'
-else
-  require 'iconv'
-end
+require 'iconv'
 
 module Mysql2xxxx
   class Writer
+    MYSQL_CHARSET = 'utf8'
+    ICONV_TO = 'UTF-8//TRANSLIT'
+    ICONV_FROM = 'UTF-8'
+    
     attr_reader :config
     
     def initialize(options = {})
@@ -37,7 +37,7 @@ module Mysql2xxxx
     def dbh
       return @dbh if @dbh.is_a? ::Mysql
       @dbh = ::Mysql.init
-      @dbh.options ::Mysql::SET_CHARSET_NAME, config.charset
+      @dbh.options ::Mysql::SET_CHARSET_NAME, MYSQL_CHARSET
       @dbh.real_connect config.host, config.user, config.password, config.database, config.port, config.socket
       # so that we can use_result instead of store_result
       @dbh.query_with_result = false
@@ -62,23 +62,14 @@ module Mysql2xxxx
     
     def recode_as_utf8(raw_str)
       return if raw_str.nil?
-      if ::RUBY_VERSION >= '1.9'
-        $stderr.puts "[mysql2xxxx] Raw - #{raw_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
-        recoded_str = raw_str.ensure_encoding 'UTF-8', :external_encoding => config.encoding, :invalid_characters => :transcode
-        $stderr.puts "[mysql2xxxx] Recoded - #{recoded_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
-        recoded_str
-      else
-        $stderr.puts "[mysql2xxxx] Raw - #{raw_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
-        recoded_str = ::Iconv.conv('UTF-8//TRANSLIT', config.encoding, raw_str.to_s + ' ')[0..-2]
-        $stderr.puts "[mysql2xxxx] Recoded - #{recoded_str}" if ::ENV['MYSQL2XXXX_DEBUG'] == 'true'
-        recoded_str
-      end
+      [ iconv.iconv(raw_str), iconv.iconv(nil) ].join
     end
     
     def close
+      @dead = true
+      iconv.close
       result.free
       dbh.close
-      @dead = true
     end
     
     def to_s
@@ -94,10 +85,16 @@ module Mysql2xxxx
     end
     
     def to_path(path)
-      f = ::File.open(path, 'w')
+      f = ::RUBY_VERSION >= '1.9' ? ::File.open(path, 'w', :binmode => true) : ::File.open(path, 'w')
       to_file f
       f.close
       nil
+    end
+    
+    private
+    
+    def iconv
+      @iconv ||= ::Iconv.new(ICONV_TO, ICONV_FROM)
     end
   end
 end

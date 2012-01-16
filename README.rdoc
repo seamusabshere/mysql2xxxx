@@ -2,9 +2,9 @@
 
 ==Binaries
 
-    mysql2csv --user=dbuser --password=dbpassword --database=dbname [--charset=utf8] [--encoding=UTF-8] --execute="select * from automobile_makes"
-    mysql2json --user=dbuser --password=dbpassword --database=dbname [--charset=utf8] [--encoding=UTF-8] --execute="select * from automobile_makes"
-    mysql2xml --user=dbuser --password=dbpassword --database=dbname [--charset=utf8] [--encoding=UTF-8] --execute="select * from automobile_makes"
+    mysql2csv --user=dbuser --password=dbpassword --database=dbname --execute="select * from automobile_makes"
+    mysql2json --user=dbuser --password=dbpassword --database=dbname --execute="select * from automobile_makes"
+    mysql2xml --user=dbuser --password=dbpassword --database=dbname --execute="select * from automobile_makes"
 
 To see all options
 
@@ -25,7 +25,7 @@ Note also that if you're running it inside a Rails application, it will default 
 ==Well-formedness
 
 * CSV output depends on FasterCSV <tt>to_csv</tt>
-* JSON output depends on ActiveSupport <tt>to_json</tt>
+* JSON output depends on Florian Frank's JSON <tt>JSON.generate</tt>
 * XML output is written manually, but looks like the output of <tt>mysql [hyphen][hyphen]xml</tt>
 
 Copyright 2011 Seamus Abshere

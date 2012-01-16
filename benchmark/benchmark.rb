@@ -3,7 +3,7 @@
 ENV['HERE'] = File.dirname(__FILE__)
 ENV['DBUSER'] = 'root'
 ENV['DBPASSWORD'] = 'password'
-ENV['DBNAME'] = 'data1'
+ENV['DBNAME'] = 'mysql2xxxx_benchmark'
 ENV['MEMPROF_REPORT_PATH'] = File.expand_path('memprof.txt')
 ENV['DUMP_PATH'] = File.expand_path('a.dump')
 ENV['EXECUTE'] = 'SELECT * FROM five_thousand_rows'

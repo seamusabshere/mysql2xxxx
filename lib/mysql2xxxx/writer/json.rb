@@ -1,8 +1,4 @@
-%w{
-  active_support/json/encoding
-}.each do |active_support_3_requirement|
-  require active_support_3_requirement
-end if ::ActiveSupport::VERSION::MAJOR == 3
+require 'json'
 
 module Mysql2xxxx
   class JSON < Writer
@@ -15,7 +11,7 @@ module Mysql2xxxx
         else
           f.write ','
         end
-        f.write hsh.to_json
+        f.write ::JSON.generate(hsh)
       end
       f.write ']'
       nil

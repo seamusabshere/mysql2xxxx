@@ -6,7 +6,7 @@ class TestMysql2xxxx < Test::Unit::TestCase
     a = Mysql2xxxx::JSON.new @options
     str = a.to_s
     assert str.include?('Acura')
-    assert str.include?(%q{Citro\u00ebn})
+    assert str.include?('Citroën')
     assert !str.include?('DaimlerChrysler')
   end
 

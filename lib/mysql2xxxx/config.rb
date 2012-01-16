@@ -17,24 +17,6 @@ module Mysql2xxxx
       options[:host] || active_record_config.try(:[], :host)
     end
     
-    # MySQL connection charset
-    #
-    # If you change this, you also have to change :encoding
-    #
-    # Default: utf8
-    def charset
-      options[:charset] || 'utf8'
-    end
-    
-    # Encoding
-    #
-    # If you change this, you also have to change :charset
-    #
-    # Default: UTF-8
-    def encoding
-      options[:encoding] || 'UTF-8'
-    end
-    
     def port
       options[:port] || active_record_config.try(:[], :port)
     end
