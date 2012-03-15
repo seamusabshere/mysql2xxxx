@@ -5,7 +5,6 @@ require "mysql2xxxx/version"
 Gem::Specification.new do |s|
   s.name        = "mysql2xxxx"
   s.version     = Mysql2xxxx::VERSION
-  s.platform    = Gem::Platform::RUBY
   s.authors     = ["Seamus Abshere"]
   s.email       = ["seamus@abshere.net"]
   s.homepage    = "https://github.com/seamusabshere/mysql2xxxx"
@@ -20,20 +19,9 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_dependency 'activesupport', '>=2.3.10'
-  s.add_dependency 'mysql'
+  s.add_dependency 'mysql2'
   s.add_dependency 'mixlib-cli'
   s.add_dependency 'fast_xs'
   s.add_dependency 'fastercsv'
   s.add_dependency 'multi_json'
-  
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'activerecord'
-  s.add_development_dependency 'shell-executer'
-  s.add_development_dependency 'posix-spawn'
-  if RUBY_VERSION >= '1.9'
-    s.add_development_dependency 'ruby-debug19'
-  else
-    s.add_development_dependency 'memprof'
-    s.add_development_dependency 'ruby-debug'
-  end
 end

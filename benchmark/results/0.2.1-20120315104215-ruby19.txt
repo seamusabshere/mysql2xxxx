@@ -1,0 +1,37 @@
+mysql2xxxx
+Version: 0.2.1
+Run:     2012-03-15 10:42:15 -0500
+System:  Darwin alzabo0 10.8.0 Darwin Kernel Version 10.8.0: Tue Jun  7 16:32:41 PDT 2011; root:xnu-1504.15.3~1/RELEASE_X86_64 x86_64
+
+##################################################
+# CSV
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  13772
+  0:00.58  24444
+  0:00.89  25084
+  0:01.19  25084
+Memprof object counts not available (ruby 1.9)
+
+##################################################
+# JSON
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  13636
+  0:00.61  22288
+  0:00.91  22540
+  0:01.21  22540
+  0:01.52  22540
+  0:01.82  22540
+  0:02.12  22540
+  0:02.43  22540
+Memprof object counts not available (ruby 1.9)
+
+##################################################
+# XML
+##################################################
+Real memory over time (sampled every 0.3 sec):
+  0:00.30  13356
+  0:00.61  21660
+  0:00.91  21660
+Memprof object counts not available (ruby 1.9)

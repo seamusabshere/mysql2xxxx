@@ -10,19 +10,24 @@ module Mysql2xxxx
     def to_file(f)
       slash_n = config.slash_n
 
+      result = client.query(last_statement, :stream => true, :cache_rows => false, :as => :array)
+      fields = result.fields
+
       if slash_n
-        f.write keys.map { |v| v.nil? ? SLASH_N : v }.to_csv
+        f.write fields.map { |v| v.nil? ? SLASH_N : v }.to_csv
       else
-        f.write keys.to_csv
+        f.write fields.to_csv
       end
       
-      stream_arrays do |ary|
+      result.each do |ary|
+        next if ary.nil?
         if slash_n
           f.write ary.map { |v| v.nil? ? SLASH_N : v }.to_csv
         else
           f.write ary.to_csv
         end
       end
+
       nil
     end
   end

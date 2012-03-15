@@ -5,9 +5,7 @@ require 'active_support'
 require 'active_support/version'
 require 'active_support/core_ext' if ::ActiveSupport::VERSION::MAJOR >= 3
 
-# will use mysql2 as soon as :stream => true is supported
-# https://github.com/brianmario/mysql2/pull/223
-require 'mysql'
+require 'mysql2'
 
 require 'mysql2xxxx/config'
 require 'mysql2xxxx/writer'

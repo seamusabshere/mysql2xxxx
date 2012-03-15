@@ -1,43 +1,43 @@
 module Mysql2xxxx
   class Config
-    attr_reader :options
-    def initialize(options = {})
-      @options = options.symbolize_keys
+    attr_reader :user_specified_options
+    def initialize(user_specified_options = {})
+      @user_specified_options = user_specified_options.symbolize_keys
     end
     
     def user
-      options[:user] || active_record_config.try(:[], :username)
+      user_specified_options[:user] || active_record_config.try(:[], :username)
     end
     
     def password
-      options[:password] || active_record_config.try(:[], :password)
+      user_specified_options[:password] || active_record_config.try(:[], :password)
     end
     
     def host
-      options[:host] || active_record_config.try(:[], :host)
+      user_specified_options[:host] || active_record_config.try(:[], :host)
     end
     
     def port
-      options[:port] || active_record_config.try(:[], :port)
+      user_specified_options[:port] || active_record_config.try(:[], :port)
     end
     
     def socket
-      options[:socket] || active_record_config.try(:[], :socket)
+      user_specified_options[:socket] || active_record_config.try(:[], :socket)
     end
     
     def database
-      options[:database] || active_record_connection.try(:current_database)
+      user_specified_options[:database] || active_record_connection.try(:current_database)
     end
     
     def execute
-      options[:execute]
+      user_specified_options[:execute]
     end
     
     # Whether to write \N instead of a blank string for NULL. This is helpful for mysqlimport.
     #
     # Only applies to CSV
     def slash_n
-      options.fetch :slash_n, false
+      user_specified_options.fetch :slash_n, false
     end
         
     private

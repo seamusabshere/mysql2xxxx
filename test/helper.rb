@@ -1,11 +1,15 @@
 require 'rubygems'
 require 'bundler'
 Bundler.setup
+
+if ::Bundler.definition.specs['ruby-debug19'].first or ::Bundler.definition.specs['ruby-debug'].first
+  require 'ruby-debug'
+end
+
 require 'test/unit'
-require 'ruby-debug'
 require 'fileutils'
 require 'active_record'
-require 'shell/executer'
+require 'posix/spawn'
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'mysql2xxxx'
@@ -16,7 +20,7 @@ MYSQL_HOST = '127.0.0.1'
 TEST_DB = 'mysql2xxxx_test'
 
 def execute_sql(sql, db = 'mysql')
-  Shell.execute! %{mysql -u #{MYSQL_USER} -p#{MYSQL_PASS} --database="#{db}" --execute="#{sql}"}
+  POSIX::Spawn::Child.new %{mysql -u #{MYSQL_USER} -p#{MYSQL_PASS} --database="#{db}" --execute="#{sql}"}
 end
 
 execute_sql "DROP DATABASE IF EXISTS #{TEST_DB}"

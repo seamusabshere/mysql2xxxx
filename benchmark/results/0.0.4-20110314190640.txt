@@ -136,12 +136,12 @@ Memprof object counts (top 25):
      18 ./benchmark/../lib/mysql2xxxx/writer.rb:33:__node__
      14 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:12:__node__
      12 ./benchmark/../lib/mysql2xxxx/writer.rb:11:__node__
-     12 ./benchmark/../lib/mysql2xxxx/properties.rb:32:__node__
-     12 ./benchmark/../lib/mysql2xxxx/properties.rb:28:__node__
-     12 ./benchmark/../lib/mysql2xxxx/properties.rb:24:__node__
-     12 ./benchmark/../lib/mysql2xxxx/properties.rb:20:__node__
+     12 ./benchmark/../lib/mysql2xxxx/config.rb:32:__node__
+     12 ./benchmark/../lib/mysql2xxxx/config.rb:28:__node__
+     12 ./benchmark/../lib/mysql2xxxx/config.rb:24:__node__
+     12 ./benchmark/../lib/mysql2xxxx/config.rb:20:__node__
      11 ./benchmark/../lib/mysql2xxxx/writer/xml.rb:4:__node__
-     10 ./benchmark/../lib/mysql2xxxx/properties.rb:36:__node__
+     10 ./benchmark/../lib/mysql2xxxx/config.rb:36:__node__
       9 ./benchmark/../lib/mysql2xxxx/writer.rb:26:__node__
       8 ./benchmark/../lib/mysql2xxxx/writer.rb:73:__node__
       8 ./benchmark/../lib/mysql2xxxx/writer.rb:32:__node__

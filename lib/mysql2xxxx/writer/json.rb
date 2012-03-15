@@ -5,7 +5,8 @@ module Mysql2xxxx
     def to_file(f)
       first = true
       f.write '['
-      stream_hashes do |hsh|
+      client.query(last_statement, :stream => true, :cache_rows => false).each do |hsh|
+        next if hsh.nil?
         if first
           first = false
         else
