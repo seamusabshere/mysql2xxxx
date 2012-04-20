@@ -1,0 +1,11 @@
+unreleased
+
+* Breaking changes
+
+  * Requires ActiveRecord 3.1+
+  * Requires (unreleased as of this writing) mysql2's streaming abilities
+
+* Enhancements
+
+  * Replace mysql with mysql2 (possible because mysql2 0.3.x's streaming keeps memory use under control)
+  * Use new MultiJson syntax

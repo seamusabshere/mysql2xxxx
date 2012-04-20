@@ -6,8 +6,11 @@ class TestMysql2xxxx < Test::Unit::TestCase
     a = Mysql2xxxx::JSON.new @options
     str = a.to_s
     assert str.include?('Acura')
-    # active_support/json encodes non-ascii with \u sequences even though it's not necessary
-    assert str.include?('Citro\u00ebn')
+    if RUBY_VERSION >= '1.9'
+      assert str.include?('Citro\u00ebn')
+    else
+      assert str.include?('Citroën')
+    end
     assert !str.include?('DaimlerChrysler')
   end
 

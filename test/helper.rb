@@ -2,7 +2,9 @@ require 'rubygems'
 require 'bundler'
 Bundler.setup
 
-if ::Bundler.definition.specs['ruby-debug19'].first or ::Bundler.definition.specs['ruby-debug'].first
+if ::Bundler.definition.specs['debugger'].first
+  require 'debugger'
+elsif ::Bundler.definition.specs['ruby-debug'].first
   require 'ruby-debug'
 end
 
@@ -10,8 +12,6 @@ require 'test/unit'
 require 'fileutils'
 require 'active_record'
 require 'posix/spawn'
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'mysql2xxxx'
 
 MYSQL_USER = 'root'

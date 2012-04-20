@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "mysql2xxxx/version"
+require File.expand_path("../lib/mysql2xxxx/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "mysql2xxxx"
@@ -18,8 +17,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   
-  s.add_dependency 'activesupport', '>=2.3.10'
-  s.add_dependency 'mysql2'
+  s.add_dependency 'activesupport', '>=3.1'
+  s.add_dependency 'mysql2', '>=0.3'
   s.add_dependency 'mixlib-cli'
   s.add_dependency 'fast_xs'
   s.add_dependency 'fastercsv'

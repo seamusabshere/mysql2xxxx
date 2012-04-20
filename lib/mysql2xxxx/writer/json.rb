@@ -12,7 +12,7 @@ module Mysql2xxxx
         else
           f.write ','
         end
-        f.write ::MultiJson.encode(hsh)
+        f.write ::MultiJson.dump(hsh)
       end
       f.write ']'
       nil
