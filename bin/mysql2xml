@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-require "mysql2xxxx"
-require 'mysql2xxxx/cli'
+require "mysql2format"
+require 'mysql2format/cli'
 
-cli = Mysql2xxxx::Cli.new
+cli = Mysql2format::Cli.new
 cli.parse_options
 
-Mysql2xxxx::XML.new(cli.config).to_stdout
+Mysql2format::XML.new(cli.config).to_stdout

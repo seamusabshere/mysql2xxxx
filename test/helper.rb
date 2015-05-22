@@ -12,7 +12,7 @@ require 'test/unit'
 require 'fileutils'
 require 'active_record'
 require 'posix/spawn'
-require 'mysql2xxxx'
+require 'mysql2format'
 
 MYSQL_USER = 'root'
 MYSQL_PASS = 'password'

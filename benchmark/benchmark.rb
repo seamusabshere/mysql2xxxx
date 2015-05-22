@@ -17,8 +17,8 @@ unless RUBY_VERSION >= '1.9'
 end
 require 'posix/spawn'
 $LOAD_PATH.unshift File.join(ENV['HERE'], '..', 'lib')
-require 'mysql2xxxx'
-require 'mysql2xxxx/version'
+require 'mysql2format'
+require 'mysql2format/version'
 
 $stderr.puts "Loading sample data..."
 `bunzip2 #{ENV['HERE']}/five_thousand_rows.sql.bz2 -c | mysql -u #{ENV['DBUSER']} -p#{ENV['DBPASSWORD']} --database #{ENV['DBNAME']}`
@@ -49,9 +49,9 @@ ensure
 end
 
 $stderr.puts "Writing report..."
-File.open File.expand_path(File.join(ENV['HERE'], 'results', "#{Mysql2xxxx::VERSION}-#{now.to_formatted_s(:number)}-#{RUBY_VERSION >= '1.9' ? 'ruby19' : 'ruby18'}.txt")), 'w' do |f|
-  f.puts %{mysql2xxxx}
-  f.puts %{Version: #{Mysql2xxxx::VERSION}}
+File.open File.expand_path(File.join(ENV['HERE'], 'results', "#{Mysql2format::VERSION}-#{now.to_formatted_s(:number)}-#{RUBY_VERSION >= '1.9' ? 'ruby19' : 'ruby18'}.txt")), 'w' do |f|
+  f.puts %{mysql2format}
+  f.puts %{Version: #{Mysql2format::VERSION}}
   f.puts %{Run:     #{now}}
   f.puts %{System:  #{`uname -a`}}
   FORMATS.each do |format|

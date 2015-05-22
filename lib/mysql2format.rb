@@ -13,5 +13,5 @@ require 'mysql2xxxx/writer/json'
 require 'mysql2xxxx/writer/csv'
 require 'mysql2xxxx/writer/xml'
 
-module Mysql2xxxx
+module Mysql2format
 end
