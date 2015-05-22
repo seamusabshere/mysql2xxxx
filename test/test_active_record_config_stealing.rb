@@ -10,7 +10,7 @@ ActiveRecord::Base.establish_connection(
 
 class TestActiveRecordConfigStealing < Test::Unit::TestCase
   def test_steals_config
-    a = Mysql2xxxx::JSON.new @options.slice(:execute)
+    a = Mysql2format::JSON.new @options.slice(:execute)
     str = a.to_s
     assert str.include?('Acura')
     assert !str.include?('DaimlerChrysler')

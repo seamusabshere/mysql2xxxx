@@ -3,7 +3,7 @@ require 'helper'
 
 class TestMysql2xxxx < Test::Unit::TestCase
   def test_1_mysql2json
-    a = Mysql2xxxx::JSON.new @options
+    a = Mysql2format::JSON.new @options
     str = a.to_s
     assert str.include?('Acura')
     if RUBY_VERSION >= '1.9'
@@ -15,7 +15,7 @@ class TestMysql2xxxx < Test::Unit::TestCase
   end
 
   def test_2_mysql2csv
-    a = Mysql2xxxx::CSV.new @options
+    a = Mysql2format::CSV.new @options
     str = a.to_s
     assert str.include?('Acura')
     assert str.include?('Citroën')
@@ -23,7 +23,7 @@ class TestMysql2xxxx < Test::Unit::TestCase
   end
   
   def test_3_mysql2xml
-    a = Mysql2xxxx::XML.new @options
+    a = Mysql2format::XML.new @options
     str = a.to_s
     assert str.include?('Acura')
     assert str.include?('Citro&#235;n')
@@ -31,9 +31,9 @@ class TestMysql2xxxx < Test::Unit::TestCase
   end
   
   def test_4_slash_n_for_nulls
-    a = Mysql2xxxx::CSV.new @options
+    a = Mysql2format::CSV.new @options
     assert a.to_s.include?(',,')
-    b = Mysql2xxxx::CSV.new @options.merge(:slash_n => true)
+    b = Mysql2format::CSV.new @options.merge(:slash_n => true)
     assert b.to_s.include?(',\N,')
   end
 end
